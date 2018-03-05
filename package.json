@@ -1,0 +1,19 @@
+{
+  "name": "kxnotif",
+  "version": "1.0.0",
+  "description": "kaxet app for notification",
+  "main": "server03.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leogurning/kxnotif.git"
+  },
+  "author": "Leonard Gurning",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leogurning/kxnotif/issues"
+  },
+  "homepage": "https://github.com/leogurning/kxnotif#readme"
+}
