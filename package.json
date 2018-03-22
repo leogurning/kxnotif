@@ -4,7 +4,17 @@
   "description": "kaxet app for notification",
   "main": "server03.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server03"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "nodemailer": "*"
   },
   "repository": {
     "type": "git",
@@ -15,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/leogurning/kxnotif/issues"
   },
-  "homepage": "https://github.com/leogurning/kxnotif#readme"
+  "homepage": "https://github.com/leogurning/kxnotif#readme",
+  "devDependencies": {}
 }
