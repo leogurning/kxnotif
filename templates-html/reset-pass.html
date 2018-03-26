@@ -2,7 +2,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Verify email for Kaxet account</title>
+  <title>Set up a new password for Kaxet account</title>
   <!-- 
   The style block is collapsed on page load to save you some scrolling.
   Postmark automatically inlines all CSS properties for maximum email client 
@@ -347,37 +347,37 @@
     border-bottom: 10px solid #FF6136;
     border-left: 18px solid #FF6136;
   }
-  .btn {
-    box-sizing: border-box;
-    display: inline-block;
-    min-height: 36px;
-    padding: 12px 24px;
-    margin: 0 0 24px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 0;
-    border-radius: 3px;
-    color: #fff;
-    background-color: #0AB3A4;
-    text-decoration: none;
+    .btn {
+  box-sizing: border-box;
+  display: inline-block;
+  min-height: 36px;
+  padding: 12px 24px;
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #0AB3A4;
+  text-decoration: none;
 
-    -webkit-transition: all .15s ease-in-out;
-    -o-transition: all .15s ease-in-out;
-    transition: all .15s ease-in-out;
-  }
-      
-  .btn:hover {
-    background-color: #057768;
-  }
-      
-  .btn:active {
-    background-color: #0AB3A4;
-   }  
+  -webkit-transition: all .15s ease-in-out;
+  -o-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+}
+    
+.btn:hover {
+  background-color: #057768;
+}
+    
+.btn:active {
+  background-color: #0AB3A4;
+ }    
   /* Type ------------------------------ */
   
   h1 {
@@ -422,7 +422,7 @@
   </style>
 </head>
 <body>
-  <span class="preheader">Use this link to verify your email. The link is only valid once.</span>
+  <span class="preheader">Use this link to reset your password. The link is only valid once.</span>
   <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0">
     <tr>
       <td align="center">
@@ -439,7 +439,7 @@
                 <tr>
                   <td class="content-cell">
                     <h1>Hi,</h1>
-                    <p>To confirm that you can get our emails, <strong>just click the button below</strong>.</p>
+                    <p>You recently requested to reset your password for your Kaxet account. Use the button below to reset it. <strong>This password reset is only valid once.</strong></p>
                     <!-- Action -->
                     <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
                       <tr>
@@ -451,7 +451,8 @@
                               <td align="center">
                                 <table border="0" cellspacing="0" cellpadding="0">
                                   <tr>
-                                    <td><a href="{urlperipikasiimel}" class="button btn" mc:disable-tracking="">Confirm my email address</a>
+                                    <td>
+                                      <a href="{resetpassurl}" class="button btn" target="_blank">Reset your password</a>
                                     </td>
                                   </tr>
                                 </table>
@@ -461,7 +462,7 @@
                         </td>
                       </tr>
                     </table>
-                    <p>If you have any issues confirming your email, we will be happy to help you. You can contact us on <a href="mailto:{contactno}">{contactno}</a>.</p>
+                    <p>For security, if you did not request a password reset, please ignore this email or contact support team at <a href="mailto:{contactno}">{contactno}</a> if you have questions.</p>
                     <p>Thanks,
                       <br>The Kaxet Team</p>
                     <!-- Sub copy -->
@@ -469,7 +470,7 @@
                       <tr>
                         <td>
                           <p class="sub">If you’re having trouble with the button above, copy and paste the URL below into your web browser.</p>
-                          <p class="sub">{urlperipikasiimel}</p>
+                          <p class="sub">{resetpassurl}</p>
                         </td>
                       </tr>
                     </table>

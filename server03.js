@@ -37,7 +37,9 @@ app.get('/', function(req, res) {
 });
 
 app.post('/sendverification',emailverify.sendverification);
+app.post('/sendresetpassword',emailverify.sendresetpassword);
 app.get('/verify',emailverify.emverification);
+app.get('/pgverify',emailverify.pageverification);
 
 app.get('*', (req, res) => {
     res.send('Kaxet notif API is running at apikxnotif:' + port + '/api');
