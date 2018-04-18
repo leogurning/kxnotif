@@ -182,3 +182,117 @@ exports.pageverification = function(req, res, next){
         }
     });
 }
+
+exports.sendwelcomemail = function(req, res, next){
+    const emailto = req.body.emailto;
+    const vlink = req.body.vlink;
+    const username = req.body.username;
+    var configVal = 'N/A';
+    let query = {};
+    var htmltemplatepath = __dirname.replace('routes','templates-html');
+    //console.log(htmltemplatepath);
+    //link= getProtocol(req)+"://"+req.get('host')+"/resetpassword?id="+randhash;
+    //var pathkaxetlogo = getProtocol(req)+"://"+req.get('host');
+    
+    var oriemailBody = fs.readFileSync(htmltemplatepath+'/welcome-email.html').toString();
+    var emailBody = oriemailBody.replace(new RegExp('{urlkaxet}', 'g'),vlink);
+    var emailBody1 = emailBody.replace(new RegExp('{username}', 'g'),username);
+    var emailBody2 = emailBody1.replace(new RegExp('{email}', 'g'),emailto);
+    //var emailBody3 = emailBody2.replace(new RegExp('{pathlogo}', 'g'),pathkaxetlogo);
+
+    query = { code:'CSEML', group:'EMAIL', status: 'STSACT'};        
+    var fields = { 
+        _id:0,
+        code:1, 
+        value:1 
+    };
+
+    Msconfig.findOne(query, fields).exec(function(err, result) {
+        if(err) { 
+            configVal = 'Error configVal.';
+        }
+        configVal = result.value;
+        var rsemailBody = emailBody2.replace(new RegExp('{contactno}', 'g'),configVal);
+        mailOptions={
+            from:"admin-kaxet <automail@2261381f16411df59996a331671476320c.mail.id>",
+            to : emailto,
+            subject : "Welcome to KAXET",
+            html : rsemailBody
+        }
+        //console.log(mailOptions);
+        smtpTransport.sendMail(mailOptions, function(error, response){
+            if(error){
+                console.log('Fatal error, '+error.message);
+                return res.status(201).json({ 
+                    success: false, 
+                    message: 'Fatal error, '+error.message
+                });
+            }else{
+                console.log('Message successfully sent.');
+                return res.status(200).json({ 
+                    success: true,
+                    message: 'Message successfully sent.'
+                });
+            }
+        });
+    });
+}
+
+exports.senddeactivationemail = function(req, res, next){
+    const emailto = req.body.emailto;
+    const username = req.body.username;
+    var configVal = 'N/A';
+    let query = {};
+    var htmltemplatepath = __dirname.replace('routes','templates-html');
+    //console.log(htmltemplatepath);
+    //var pathkaxetlogo = getProtocol(req)+"://"+req.get('host');
+    //console.log(pathkaxetlogo);
+    var oriemailBody = fs.readFileSync(htmltemplatepath+'/deactivation-email.html').toString();
+    var emailBody = oriemailBody.replace(new RegExp('{username}', 'g'),username);
+    var emailBody1 = emailBody.replace(new RegExp('{email}', 'g'),emailto);
+    //var emailBody2 = emailBody1.replace(new RegExp('{pathlogo}', 'g'),pathkaxetlogo);
+
+    query = { code:'CSEML', group:'EMAIL', status: 'STSACT'};        
+    var fields = { 
+        _id:0,
+        code:1, 
+        value:1 
+    };
+
+    Msconfig.findOne(query, fields).exec(function(err, result) {
+        if(err) { 
+            configVal = 'Error configVal.';
+        }
+        configVal = result.value;
+        var rsemailBody = emailBody1.replace(new RegExp('{contactno}', 'g'),configVal);
+        mailOptions={
+            from:"admin-kaxet <automail@2261381f16411df59996a331671476320c.mail.id>",
+            to : emailto,
+            subject : "KAXET account deactivation",
+            html : rsemailBody
+        }
+        //console.log(mailOptions);
+        smtpTransport.sendMail(mailOptions, function(error, response){
+            if(error){
+                console.log('Fatal error, '+error.message);
+                return res.status(201).json({ 
+                    success: false, 
+                    message: 'Fatal error, '+error.message
+                });
+            }else{
+                console.log('Message successfully sent.');
+                return res.status(200).json({ 
+                    success: true,
+                    message: 'Message successfully sent.'
+                });
+            }
+        });
+    });
+}
+
+function getProtocol (req) {
+    var proto = req.connection.encrypted ? 'https' : 'http';
+    // only do this if you trust the proxy
+    proto = req.headers['x-forwarded-proto'] || proto;
+    return proto.split(/\s*,\s*/)[0];
+}

@@ -5,6 +5,7 @@ const cors = require('cors');
 const jwt    = require('jsonwebtoken'); 
 const config = require('./config');
 const emailverify = require('./routes/emailverify.js');
+var path = require('path');
 
 const app = express();
 const port = process.env.PORT || config.serverport;
@@ -30,6 +31,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(require('body-parser').json({ type : '*/*' })); --> this can make error in JSON
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // basic routes
 app.get('/', function(req, res) {
@@ -40,6 +42,8 @@ app.post('/sendverification',emailverify.sendverification);
 app.post('/sendresetpassword',emailverify.sendresetpassword);
 app.get('/verify',emailverify.emverification);
 app.get('/pgverify',emailverify.pageverification);
+app.post('/welcomemail',emailverify.sendwelcomemail);
+app.post('/deactivationemail',emailverify.senddeactivationemail);
 
 app.get('*', (req, res) => {
     res.send('Kaxet notif API is running at apikxnotif:' + port + '/api');
