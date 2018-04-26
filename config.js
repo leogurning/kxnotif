@@ -1,6 +1,6 @@
 module.exports = {
     'serverport':2004,
-    'tokenexp': '1d',
+    'tokenexp': '365d',
     'secret': '!$3cret4@uth',
     'database': 'mongodb://admindb:kaxetadmin@ds127506.mlab.com:27506/kaxetdb',
     /* SMTP Email parameters */
