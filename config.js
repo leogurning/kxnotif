@@ -2,7 +2,7 @@ module.exports = {
     'serverport':2004,
     'tokenexp': '365d',
     'secret': '!$3cret4@uth',
-    'database': 'mongodb://admindb:kaxetadmin@ds127506.mlab.com:27506/kaxetdb',
+    'database': 'mongodb://admindb:kaxetadmin@35.200.201.154:27017/kaxetdb',
     /* SMTP Email parameters */
     'email_service': 'Gmail',
     'email_userid': 'cs.kaxet10',
