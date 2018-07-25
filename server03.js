@@ -47,6 +47,7 @@ app.post('/deactivationemail',emailverify.senddeactivationemail);
 app.get('/processenv', (req, res) => {
     res.json(process.env);
 });
+
 app.get('*', (req, res) => {
     res.send('Kaxet notif API is running at apikxnotif:' + port + '/api');
 });
