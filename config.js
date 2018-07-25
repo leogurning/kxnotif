@@ -1,5 +1,5 @@
 module.exports = {
-    'serverport':2004,
+    'serverport':8080,
     'tokenexp': '365d',
     'secret': '!$3cret4@uth',
     //'database': 'mongodb://admindb:kaxetadmin@35.200.201.154:27017/kaxetdb',
