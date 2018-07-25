@@ -8,7 +8,7 @@ const emailverify = require('./routes/emailverify.js');
 var path = require('path');
 
 const app = express();
-const port = process.env.PORT || config.serverport;
+const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || config.serverport;
 
 mongoose.connect(config.database, function(err){
 	if(err){
@@ -44,7 +44,9 @@ app.get('/verify',emailverify.emverification);
 app.get('/pgverify',emailverify.pageverification);
 app.post('/welcomemail',emailverify.sendwelcomemail);
 app.post('/deactivationemail',emailverify.senddeactivationemail);
-
+app.get('/processenv', (req, res) => {
+    res.json(process.env);
+});
 app.get('*', (req, res) => {
     res.send('Kaxet notif API is running at apikxnotif:' + port + '/api');
 });
