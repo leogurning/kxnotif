@@ -8,7 +8,7 @@ const emailverify = require('./routes/emailverify.js');
 var path = require('path');
 
 const app = express();
-const port = process.env.PORT || process.env.KXNOTIFPRD_SERVICE_PORT || config.serverport;
+const port = process.env.PORT || process.env.KXNOTIFP_SERVICE_PORT || config.serverport;
 
 mongoose.connect(config.database, function(err){
 	if(err){
