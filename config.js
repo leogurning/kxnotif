@@ -1,9 +1,8 @@
 module.exports = {
-    'serverport':8080,
+    'serverport':2004,
     'tokenexp': '365d',
     'secret': '!$3cret4@uth',
-    //'database': 'mongodb://admindb:kaxetadmin@35.200.201.154:27017/kaxetdb',
-    'database': 'mongodb://adminkaxet:!niAdmindb01@mongodb/kaxetdb',
+    'database': 'mongodb://adminkaxet:lniAdmin10@mongodb/kaxetprddb',
     /* SMTP Email parameters */
     'email_service': 'Gmail',
     'email_userid': 'cs.kaxet10',
